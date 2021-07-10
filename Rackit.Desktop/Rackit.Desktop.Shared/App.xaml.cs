@@ -39,12 +39,10 @@ namespace Rackit.Desktop
     /// executed, and as such is the logical equivalent of main() or WinMain().
     /// </summary>
     public App()
-    {
+    { 
       InitializeLogging();
 
       this.InitializeComponent();
-
-
 
 #if HAS_UNO || NETFX_CORE
       this.Suspending += OnSuspending;
@@ -106,7 +104,10 @@ namespace Rackit.Desktop
         }
         // Ensure the current window is active
         _window.Activate();
+        
       }
+
+      ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
     }
 
     /// <summary>

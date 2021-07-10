@@ -16,6 +16,7 @@
                  -->
                 <ResourceDictionary Source="/Dicts/Styles/Common.xaml"/>
                 <ResourceDictionary Source="/Dicts/Styles/Common2.xaml"/>
+                
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

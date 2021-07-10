@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Shapes;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -39,11 +40,11 @@ namespace Rackit.Desktop
 #if NETFX_CORE
       CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
       Window.Current.SetTitleBar(BackgroundElement);
-      TitleBar = ApplicationView.GetForCurrentView().TitleBar;
-      TitleBar.ButtonBackgroundColor = new Color() { A = 0, R = 54, G = 60, B = 116 };
+      TitleBar = ApplicationView.GetForCurrentView().TitleBar;      
+      TitleBar.ButtonBackgroundColor = new Color() { A = 255, R = 54, G = 60, B = 116 };
       TitleBar.ButtonHoverBackgroundColor = new Color() { A = 0, R = 19, G = 21, B = 40 };
       TitleBar.ButtonPressedBackgroundColor = new Color() { A = 0, R = 232, G = 211, B = 162 };
-      TitleBar.ButtonInactiveBackgroundColor = new Color() { A = 0, R = 135, G = 141, B = 199 };
+      TitleBar.ButtonInactiveBackgroundColor = new Color() { A = 0, R = 135, G = 141, B = 199 };      
 #endif
 
       this.SaveCommand = new RelayCommand(OnSave);
