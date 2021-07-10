@@ -4,10 +4,73 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Rackit.Desktop"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-		<TextBlock Text="Hello, world!" Margin="20" FontSize="30" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="ctlTitleBar">
+            <Rectangle x:Name="BackgroundElement" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />                    
+                </Grid.ColumnDefinitions>
+                <MenuBar VerticalAlignment="Top" Margin="-2, -5, 0, 0">
+                    <MenuBarItem Title="File"
+                         AccessKey="F" Margin="0, 0, -5, 0">
+                        <MenuFlyoutItem Text="Open"
+                                Icon="OpenFile"
+                                Click="MenuFlyoutOpen_Click">
+                            <MenuFlyoutItem.KeyboardAccelerators>
+                                <KeyboardAccelerator Key="O"
+                                             Modifiers="Control" />
+                            </MenuFlyoutItem.KeyboardAccelerators>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutSeparator />
+                        <MenuFlyoutItem Text="Save"
+                                Icon="Save"
+                                Command="{x:Bind SaveCommand}">
+                            <MenuFlyoutItem.KeyboardAccelerators>
+                                <KeyboardAccelerator Key="S"
+                                             Modifiers="Control" />
+                            </MenuFlyoutItem.KeyboardAccelerators>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutSubItem Text="Demo">
+                            <MenuFlyoutItem Text="A"
+                                    Command="{x:Bind DemoCommand}"
+                                    CommandParameter="{Binding Text, 
+                                        RelativeSource={RelativeSource Self}, 
+                                        Mode=OneTime}" />
+                            <MenuFlyoutItem Text="B"
+                                    Command="{x:Bind DemoCommand}"
+                                    CommandParameter="{Binding Text, 
+                                        RelativeSource={RelativeSource Self}, 
+                                        Mode=OneTime}" />
+                            <MenuFlyoutItem Text="C"
+                                    Command="{x:Bind DemoCommand}"
+                                    CommandParameter="{Binding Text, 
+                                        RelativeSource={RelativeSource Self}, 
+                                        Mode=OneTime}" />
+                        </MenuFlyoutSubItem>
+                    </MenuBarItem>
+                    <MenuBarItem Title="Help"
+                         AccessKey="H" Margin="-4, 0, 0, 0">
+                        <MenuFlyoutItem Text="About"
+                                Click="MenuFlyoutItemAbout_Click" />
+                    </MenuBarItem>
+                </MenuBar>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <TextBlock Text="Hello, world!" Margin="20" FontSize="30" FontFamily="{StaticResource TextBlockFontFamily1}" />
+            <ToggleButton Content="clicky" FontWeight="Bold"  Margin="86,120,0,0" VerticalAlignment="Top" Height="59" Width="233" FontSize="22" />
+            <ToggleButton Content="clicky2" FontWeight="Bold"  Margin="451,120,0,0" VerticalAlignment="Top" Height="59" Width="233" FontSize="22"/>
+        </Grid>
     </Grid>
+   
 </Page>

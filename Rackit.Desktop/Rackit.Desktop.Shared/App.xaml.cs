@@ -6,8 +6,10 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -23,6 +25,8 @@ namespace Rackit.Desktop
   /// </summary>
   public sealed partial class App : Application
   {
+    //private UISettings uisetts;
+
 #if NET5_0 && WINDOWS
         private Window _window;
 
@@ -40,8 +44,10 @@ namespace Rackit.Desktop
 
       this.InitializeComponent();
 
+
+
 #if HAS_UNO || NETFX_CORE
-            this.Suspending += OnSuspending;
+      this.Suspending += OnSuspending;
 #endif
     }
 
@@ -53,10 +59,10 @@ namespace Rackit.Desktop
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
 #if DEBUG
-            if (System.Diagnostics.Debugger.IsAttached)
-            {
-                // this.DebugSettings.EnableFrameRateCounter = true;
-            }
+      if (System.Diagnostics.Debugger.IsAttached)
+      {
+        // this.DebugSettings.EnableFrameRateCounter = true;
+      }
 #endif
 
 #if NET5_0 && WINDOWS
@@ -65,6 +71,7 @@ namespace Rackit.Desktop
 #else
       _window = Windows.UI.Xaml.Window.Current;
 #endif
+
 
       var rootFrame = _window.Content as Frame;
 
@@ -138,7 +145,7 @@ namespace Rackit.Desktop
 #elif __IOS__
                 builder.AddProvider(new global::Uno.Extensions.Logging.OSLogLoggerProvider());
 #elif NETFX_CORE
-                builder.AddDebug();
+        builder.AddDebug();
 #else
         builder.AddConsole();
 #endif
