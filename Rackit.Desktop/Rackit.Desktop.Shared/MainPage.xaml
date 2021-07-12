@@ -12,7 +12,7 @@
         <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
         
     </Page.RenderTransform>-->
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Name="griddeywoo">
 
         <Grid.RowDefinitions>
@@ -21,14 +21,12 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" x:Name="ctlTitleBar">
-            <Rectangle x:Name="BackgroundElement" Margin="0, 5, 0, 0" />
+            <Rectangle x:Name="titleBackground" Margin="0, 0, 0, 0" IsHitTestVisible="True" />
             <Grid Margin="0,0,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <!--<MenuBar VerticalAlignment="Top" Margin="-2, -5, 0, 0">-->
                 <MenuBar VerticalAlignment="Top">
-                    <!--<MenuBarItem Title="File" AccessKey="F" Margin="0, 0, -5, 0">-->
                     <MenuBarItem Title="File" AccessKey="F">
                         <MenuFlyoutItem Text="Open" Icon="OpenFile" Click="MenuFlyoutOpen_Click">
                             <MenuFlyoutItem.KeyboardAccelerators>
@@ -47,7 +45,6 @@
                             <MenuFlyoutItem Text="C" Command="{x:Bind DemoCommand}" CommandParameter="{Binding Text, RelativeSource={RelativeSource Self}, Mode=OneTime}" />
                         </MenuFlyoutSubItem>
                     </MenuBarItem>
-                    <!--<MenuBarItem Title="Help" AccessKey="H" Margin="-4, 0, 0, 0">-->
                     <MenuBarItem Title="Edit" AccessKey="E">
                         <MenuFlyoutItem Text="About" Click="MenuFlyoutItemAbout_Click" />
                     </MenuBarItem>
@@ -72,15 +69,16 @@
                         <MenuFlyoutItem Text="About" Click="MenuFlyoutItemAbout_Click" />
                     </MenuBarItem>
 
-                </MenuBar>                
+                </MenuBar>
             </Grid>
         </Grid>
-
-        <Grid Grid.Row="1">
-            <TextBlock Text="Hello, world!" Margin="20" FontSize="30" FontFamily="{StaticResource TextBlockFontFamily1}" />
-            <ToggleButton Content="clicky" FontWeight="Bold"  Margin="86,120,0,0" VerticalAlignment="Top" Height="59" Width="233" FontSize="22" />
-            <ToggleButton Content="clicky2" FontWeight="Bold"  Margin="1157,112,0,0" VerticalAlignment="Top" Height="59" Width="233" FontSize="22"/>
-        </Grid>
+        <Viewbox>
+            <Grid Grid.Row="1" MinWidth="1680">
+                <TextBlock Text="Hello, world!" Margin="20" FontSize="30" FontFamily="{StaticResource TextBlockFontFamily1}" />
+                <ToggleButton Content="clicky" FontWeight="Bold"  Margin="86,120,0,0" VerticalAlignment="Top" Height="59" Width="233" FontSize="22" />
+                <ToggleButton Content="clicky2" FontWeight="Bold"  Margin="1157,112,0,0" VerticalAlignment="Top" Height="59" Width="233" FontSize="22"/>
+            </Grid>
+        </Viewbox>
     </Grid>
 
 </Page>

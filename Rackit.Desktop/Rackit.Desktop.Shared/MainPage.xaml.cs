@@ -29,8 +29,6 @@ namespace Rackit.Desktop
   /// </summary>
   public sealed partial class MainPage : Page
   {
-    public ApplicationViewTitleBar TitleBar { get; }
-
     public ICommand SaveCommand { get; }
     public ICommand DemoCommand { get; }
 
@@ -39,12 +37,13 @@ namespace Rackit.Desktop
       this.InitializeComponent();
 #if NETFX_CORE
       CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
-      Window.Current.SetTitleBar(BackgroundElement);
-      TitleBar = ApplicationView.GetForCurrentView().TitleBar;      
-      TitleBar.ButtonBackgroundColor = new Color() { A = 255, R = 54, G = 60, B = 116 };
-      TitleBar.ButtonHoverBackgroundColor = new Color() { A = 0, R = 19, G = 21, B = 40 };
-      TitleBar.ButtonPressedBackgroundColor = new Color() { A = 0, R = 232, G = 211, B = 162 };
-      TitleBar.ButtonInactiveBackgroundColor = new Color() { A = 0, R = 135, G = 141, B = 199 };      
+      Window.Current.SetTitleBar(titleBackground);
+      var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+
+      titleBar.ButtonBackgroundColor = Colors.Transparent;
+      titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+      titleBar.ButtonHoverBackgroundColor = new Color() { A = 0, R = 19, G = 21, B = 40 };
+      titleBar.ButtonPressedBackgroundColor = new Color() { A = 0, R = 232, G = 211, B = 162 };
 #endif
 
       this.SaveCommand = new RelayCommand(OnSave);
