@@ -9,72 +9,64 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Name="ctlTitleBar" Background="Transparent" Height="5" Margin="0, 0, 0, 0">
-
-        </Grid>
-
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="0" x:Name="ctlTitleBar" Background="Transparent">
+            <Rectangle x:Name="bkgTitleBar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#00000000" FocusVisualPrimaryBrush="#00000000" FocusVisualSecondaryBrush="#00000000" />
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />                    
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Background="Transparent">
+                    <MenuBar RenderTransformOrigin="0,0">
+                        <MenuBar.RenderTransform>
+                            <CompositeTransform ScaleX="0.75" ScaleY="0.75" TranslateX="5" TranslateY="0"/>
+                        </MenuBar.RenderTransform>
+                        <MenuBarItem Title="File">
+                            <MenuFlyoutSubItem Text="New">
+                                <MenuFlyoutItem Text="Plain Text Document"/>
+                                <MenuFlyoutItem Text="Rich Text Document"/>
+                                <MenuFlyoutItem Text="Other Formats..."/>
+                            </MenuFlyoutSubItem>
+                            <MenuFlyoutItem Text="Open..."/>
+                            <MenuFlyoutItem Text="Save"/>
+                            <MenuFlyoutSeparator />
+                            <MenuFlyoutItem Text="Exit"/>
+                        </MenuBarItem>
+
+                        <MenuBarItem Title="Edit">
+                            <MenuFlyoutItem Text="Undo"/>
+                            <MenuFlyoutItem Text="Cut"/>
+                            <MenuFlyoutItem Text="Copy"/>
+                            <MenuFlyoutItem Text="Paste"/>
+                        </MenuBarItem>
+
+                        <MenuBarItem Title="View">
+                            <MenuFlyoutItem Text="Output"/>
+                            <MenuFlyoutItem Text="Raw"/>
+                            <MenuFlyoutSeparator/>
+                            <MenuFlyoutItem Text="External..."/>
+                        </MenuBarItem>
+
+                        <MenuBarItem Title="Help">
+                            <MenuFlyoutItem Text="About"/>
+                        </MenuBarItem>
+                    </MenuBar>
+                </Grid>
             </Grid>
-            
-            <MenuBar Grid.Column="0">
-                <MenuBarItem Title="File">
-                    <MenuFlyoutSubItem Text="New">
-                        <MenuFlyoutItem Text="Plain Text Document"/>
-                        <MenuFlyoutItem Text="Rich Text Document"/>
-                        <MenuFlyoutItem Text="Other Formats..."/>
-                    </MenuFlyoutSubItem>
-                    <MenuFlyoutItem Text="Open..."/>
-                    <MenuFlyoutItem Text="Save"/>
-                    <MenuFlyoutSeparator />
-                    <MenuFlyoutItem Text="Exit"/>
-                </MenuBarItem>
-
-                <MenuBarItem Title="Edit">
-                    <MenuFlyoutItem Text="Undo"/>
-                    <MenuFlyoutItem Text="Cut"/>
-                    <MenuFlyoutItem Text="Copy"/>
-                    <MenuFlyoutItem Text="Paste"/>
-                </MenuBarItem>
-
-                <MenuBarItem Title="View">
-                    <MenuFlyoutItem Text="Output"/>
-                    <MenuFlyoutSeparator/>
-                    <MenuFlyoutItem Text="Cut"/>
-                    <MenuFlyoutItem Text="Copy"/>
-                    <MenuFlyoutSeparator/>
-                    <MenuFlyoutItem Text="Rich Text Document"/>
-                    <MenuFlyoutItem Text="Other Formats..."/>
-                </MenuBarItem>
-
-                <MenuBarItem Title="Help">
-                    <MenuFlyoutItem Text="About"/>
-                </MenuBarItem>
-            </MenuBar>
-            
         </Grid>
 
-        <Grid Grid.Row="2" VerticalAlignment="Top">
+        <Grid Grid.Row="1" VerticalAlignment="Top">
             <Viewbox>
                 <Grid MinWidth="1680">
-                    <TextBlock Text="Rackit! Rackit! Rackit! Rackit!" Margin="20" FontSize="30" FontFamily="{StaticResource TextBlockFontFamily1}" />
+                    <TextBlock Text="Oobey! Doobey! Doobey! Dooo!" Margin="20" FontSize="30" FontFamily="{StaticResource TextBlockFontFamily1}" />
                     <ToggleButton Content="clicky" FontWeight="Bold"  Margin="86,120,0,0" VerticalAlignment="Top" Height="59" Width="233" FontSize="22" />
                     <ToggleButton Content="clicky2" FontWeight="Bold"  Margin="1519,276,0,0" VerticalAlignment="Top" Height="59" Width="233" FontSize="22"/>
                 </Grid>
             </Viewbox>
         </Grid>
-
-
     </Grid>
-
 </Page>

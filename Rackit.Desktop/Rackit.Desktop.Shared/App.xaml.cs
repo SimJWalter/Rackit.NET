@@ -109,14 +109,6 @@ namespace Rackit.Desktop
       }
 #if WINDOWS_UWP
       CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
-      //Window.Current.SetTitleBar(ctlTitleBar);
-
-      //var titleBar = ApplicationView.GetForCurrentView().TitleBar;
-      //titleBar.ButtonBackgroundColor = Colors.Transparent;
-      //titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
-      //titleBar.ButtonHoverBackgroundColor = Colors.Transparent;
-      //titleBar.ButtonPressedBackgroundColor = Colors.Transparent;
-
       ApplicationView appView = ApplicationView.GetForCurrentView();
       appView.TitleBar.BackgroundColor = Colors.Transparent;
       appView.TitleBar.ButtonBackgroundColor = Colors.Transparent;
@@ -125,7 +117,7 @@ namespace Rackit.Desktop
       appView.TitleBar.InactiveBackgroundColor = Colors.Transparent;
 #endif
 
-      ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
+//       ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
     }
 
     /// <summary>
