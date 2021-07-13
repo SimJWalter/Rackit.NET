@@ -35,7 +35,7 @@ namespace Rackit.Desktop
     public MainPage()
     {
       this.InitializeComponent();
-
+      Window.Current.SetTitleBar(ctlTitleBar);
       this.SaveCommand = new RelayCommand(OnSave);
       this.DemoCommand = new RelayCommand<string>(OnDemo);
     }
