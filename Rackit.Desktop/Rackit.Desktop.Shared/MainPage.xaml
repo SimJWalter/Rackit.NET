@@ -5,80 +5,76 @@
     xmlns:local="using:Rackit.Desktop"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <!--<Page.RenderTransform>
-        
-        <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
-        
-    </Page.RenderTransform>-->
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Name="griddeywoo">
+    <Grid>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" x:Name="ctlTitleBar">
-            <Rectangle x:Name="titleBackground" Margin="0, 0, 0, 0" IsHitTestVisible="True" />
-            <Grid Margin="0,0,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <MenuBar VerticalAlignment="Top">
-                    <MenuBarItem Title="File" AccessKey="F">
-                        <MenuFlyoutItem Text="Open" Icon="OpenFile" Click="MenuFlyoutOpen_Click">
-                            <MenuFlyoutItem.KeyboardAccelerators>
-                                <KeyboardAccelerator Key="O" Modifiers="Control" />
-                            </MenuFlyoutItem.KeyboardAccelerators>
-                        </MenuFlyoutItem>
-                        <MenuFlyoutSeparator />
-                        <MenuFlyoutItem Text="Save" Icon="Save" Command="{x:Bind SaveCommand}">
-                            <MenuFlyoutItem.KeyboardAccelerators>
-                                <KeyboardAccelerator Key="S" Modifiers="Control" />
-                            </MenuFlyoutItem.KeyboardAccelerators>
-                        </MenuFlyoutItem>
-                        <MenuFlyoutSubItem Text="Demo">
-                            <MenuFlyoutItem Text="A" Command="{x:Bind DemoCommand}" CommandParameter="{Binding Text, RelativeSource={RelativeSource Self}, Mode=OneTime}" />
-                            <MenuFlyoutItem Text="B" Command="{x:Bind DemoCommand}" CommandParameter="{Binding Text, RelativeSource={RelativeSource Self}, Mode=OneTime}" />
-                            <MenuFlyoutItem Text="C" Command="{x:Bind DemoCommand}" CommandParameter="{Binding Text, RelativeSource={RelativeSource Self}, Mode=OneTime}" />
-                        </MenuFlyoutSubItem>
-                    </MenuBarItem>
-                    <MenuBarItem Title="Edit" AccessKey="E">
-                        <MenuFlyoutItem Text="About" Click="MenuFlyoutItemAbout_Click" />
-                    </MenuBarItem>
+        <Grid Grid.Row="0" Name="ctlTitleBar" Background="Transparent" Height="5" Margin="0, 0, 0, 0">
 
-                    <MenuBarItem Title="View" AccessKey="V">
-                        <MenuFlyoutItem Text="About" Click="MenuFlyoutItemAbout_Click" />
-                    </MenuBarItem>
-
-                    <MenuBarItem Title="Insert" AccessKey="I">
-                        <MenuFlyoutItem Text="About" Click="MenuFlyoutItemAbout_Click" />
-                    </MenuBarItem>
-
-                    <MenuBarItem Title="Effects" AccessKey="T">
-                        <MenuFlyoutItem Text="About" Click="MenuFlyoutItemAbout_Click" />
-                    </MenuBarItem>
-
-                    <MenuBarItem Title="Options" AccessKey="O">
-                        <MenuFlyoutItem Text="About" Click="MenuFlyoutItemAbout_Click" />
-                    </MenuBarItem>
-
-                    <MenuBarItem Title="Help" AccessKey="H">
-                        <MenuFlyoutItem Text="About" Click="MenuFlyoutItemAbout_Click" />
-                    </MenuBarItem>
-
-                </MenuBar>
-            </Grid>
         </Grid>
-        <Viewbox>
-            <Grid Grid.Row="1" MinWidth="1680">
-                <TextBlock Text="Hello, world!" Margin="20" FontSize="30" FontFamily="{StaticResource TextBlockFontFamily1}" />
-                <ToggleButton Content="clicky" FontWeight="Bold"  Margin="86,120,0,0" VerticalAlignment="Top" Height="59" Width="233" FontSize="22" />
-                <ToggleButton Content="clicky2" FontWeight="Bold"  Margin="1157,112,0,0" VerticalAlignment="Top" Height="59" Width="233" FontSize="22"/>
+
+        <Grid Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />                    
+                </Grid.ColumnDefinitions>
             </Grid>
-        </Viewbox>
+            
+            <MenuBar Grid.Column="0">
+                <MenuBarItem Title="File">
+                    <MenuFlyoutSubItem Text="New">
+                        <MenuFlyoutItem Text="Plain Text Document"/>
+                        <MenuFlyoutItem Text="Rich Text Document"/>
+                        <MenuFlyoutItem Text="Other Formats..."/>
+                    </MenuFlyoutSubItem>
+                    <MenuFlyoutItem Text="Open..."/>
+                    <MenuFlyoutItem Text="Save"/>
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="Exit"/>
+                </MenuBarItem>
+
+                <MenuBarItem Title="Edit">
+                    <MenuFlyoutItem Text="Undo"/>
+                    <MenuFlyoutItem Text="Cut"/>
+                    <MenuFlyoutItem Text="Copy"/>
+                    <MenuFlyoutItem Text="Paste"/>
+                </MenuBarItem>
+
+                <MenuBarItem Title="View">
+                    <MenuFlyoutItem Text="Output"/>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutItem Text="Cut"/>
+                    <MenuFlyoutItem Text="Copy"/>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutItem Text="Rich Text Document"/>
+                    <MenuFlyoutItem Text="Other Formats..."/>
+                </MenuBarItem>
+
+                <MenuBarItem Title="Help">
+                    <MenuFlyoutItem Text="About"/>
+                </MenuBarItem>
+            </MenuBar>
+            
+        </Grid>
+
+        <Grid Grid.Row="2" VerticalAlignment="Top">
+            <Viewbox>
+                <Grid MinWidth="1680">
+                    <TextBlock Text="Rackit! Rackit! Rackit! Rackit!" Margin="20" FontSize="30" FontFamily="{StaticResource TextBlockFontFamily1}" />
+                    <ToggleButton Content="clicky" FontWeight="Bold"  Margin="86,120,0,0" VerticalAlignment="Top" Height="59" Width="233" FontSize="22" />
+                    <ToggleButton Content="clicky2" FontWeight="Bold"  Margin="1519,276,0,0" VerticalAlignment="Top" Height="59" Width="233" FontSize="22"/>
+                </Grid>
+            </Viewbox>
+        </Grid>
+
+
     </Grid>
 
 </Page>

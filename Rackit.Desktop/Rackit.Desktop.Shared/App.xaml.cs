@@ -9,6 +9,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -106,6 +107,23 @@ namespace Rackit.Desktop
         _window.Activate();
         
       }
+#if WINDOWS_UWP
+      CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+      //Window.Current.SetTitleBar(ctlTitleBar);
+
+      //var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+      //titleBar.ButtonBackgroundColor = Colors.Transparent;
+      //titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+      //titleBar.ButtonHoverBackgroundColor = Colors.Transparent;
+      //titleBar.ButtonPressedBackgroundColor = Colors.Transparent;
+
+      ApplicationView appView = ApplicationView.GetForCurrentView();
+      appView.TitleBar.BackgroundColor = Colors.Transparent;
+      appView.TitleBar.ButtonBackgroundColor = Colors.Transparent;
+      appView.TitleBar.ButtonForegroundColor = Colors.DarkGray;
+      appView.TitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+      appView.TitleBar.InactiveBackgroundColor = Colors.Transparent;
+#endif
 
       ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
     }

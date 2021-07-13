@@ -35,16 +35,6 @@ namespace Rackit.Desktop
     public MainPage()
     {
       this.InitializeComponent();
-#if NETFX_CORE
-      CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
-      Window.Current.SetTitleBar(titleBackground);
-      var titleBar = ApplicationView.GetForCurrentView().TitleBar;
-
-      titleBar.ButtonBackgroundColor = Colors.Transparent;
-      titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
-      titleBar.ButtonHoverBackgroundColor = new Color() { A = 0, R = 19, G = 21, B = 40 };
-      titleBar.ButtonPressedBackgroundColor = new Color() { A = 0, R = 232, G = 211, B = 162 };
-#endif
 
       this.SaveCommand = new RelayCommand(OnSave);
       this.DemoCommand = new RelayCommand<string>(OnDemo);
