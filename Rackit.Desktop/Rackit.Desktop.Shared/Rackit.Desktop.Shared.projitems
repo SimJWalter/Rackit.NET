@@ -24,6 +24,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Helper\RelayCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helper\RelayCommandOfT.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RootLayout.xaml.cs">
+      <DependentUpon>RootLayout.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)Dicts\Styles\Common.xaml">
@@ -31,6 +34,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)RootLayout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

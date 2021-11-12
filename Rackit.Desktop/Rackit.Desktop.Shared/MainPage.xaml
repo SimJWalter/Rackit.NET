@@ -5,86 +5,14 @@
     xmlns:local="using:Rackit.Desktop"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
+    xmlns:toolkit="using:Uno.UI.Toolkit"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <Grid Grid.Row="0" x:Name="ctlTitleBar" Background="Transparent">
-            <Rectangle x:Name="bkgTitleBar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#00000000" FocusVisualPrimaryBrush="#00000000" FocusVisualSecondaryBrush="#00000000" />
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="4" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid Background="Transparent" Grid.Row="1" Grid.Column="0" Padding="-1, 0, 0, 0">
-                    <MenuBar VerticalAlignment="Top" FontStretch="UltraCondensed" Height="30" Margin="-2,0,-94,0">
-                        <MenuBar.RenderTransform>
-                            <CompositeTransform ScaleX="0.75" ScaleY="0.75" TranslateX="5" TranslateY="0"/>
-                        </MenuBar.RenderTransform>
-                        <MenuBarItem Title="File" AccessKey="F">
-                            <MenuFlyoutItem Text="Open" Icon="OpenFile" Click="MenuFlyoutOpen_Click">
-                                <MenuFlyoutItem.KeyboardAccelerators>
-                                    <KeyboardAccelerator Key="O" Modifiers="Control" />
-                                </MenuFlyoutItem.KeyboardAccelerators>
-                            </MenuFlyoutItem>
-                            <MenuFlyoutSeparator />
-                            <MenuFlyoutItem Text="Save" Icon="Save" Command="{x:Bind SaveCommand}">
-                                <MenuFlyoutItem.KeyboardAccelerators>
-                                    <KeyboardAccelerator Key="S" Modifiers="Control" />
-                                </MenuFlyoutItem.KeyboardAccelerators>
-                            </MenuFlyoutItem>
-                            <MenuFlyoutSubItem Text="Demo">
-                                <MenuFlyoutItem Text="A" Command="{x:Bind DemoCommand}" CommandParameter="{Binding Text, RelativeSource={RelativeSource Self}, Mode=OneTime}" />
-                                <MenuFlyoutItem Text="B" Command="{x:Bind DemoCommand}" CommandParameter="{Binding Text, RelativeSource={RelativeSource Self}, Mode=OneTime}" />
-                                <MenuFlyoutItem Text="C" Command="{x:Bind DemoCommand}" CommandParameter="{Binding Text, RelativeSource={RelativeSource Self}, Mode=OneTime}" />
-                            </MenuFlyoutSubItem>
-                        </MenuBarItem>
-                        <MenuBarItem Title="Edit" AccessKey="E">
-                            <MenuFlyoutItem Text="About" Click="MenuFlyoutItemAbout_Click" />
-                        </MenuBarItem>
-
-                        <MenuBarItem Title="View" AccessKey="V">
-                            <MenuFlyoutItem Text="About" Click="MenuFlyoutItemAbout_Click" />
-                        </MenuBarItem>
-
-                        <MenuBarItem Title="Insert" AccessKey="I">
-                            <MenuFlyoutItem Text="About" Click="MenuFlyoutItemAbout_Click" />
-                        </MenuBarItem>
-
-                        <MenuBarItem Title="Effects" AccessKey="T">
-                            <MenuFlyoutItem Text="About" Click="MenuFlyoutItemAbout_Click" />
-                        </MenuBarItem>
-
-                        <MenuBarItem Title="Options" AccessKey="O">
-                            <MenuFlyoutItem Text="About" Click="MenuFlyoutItemAbout_Click" />
-                        </MenuBarItem>
-
-                        <MenuBarItem Title="Help" AccessKey="H">
-                            <MenuFlyoutItem Text="About" Click="MenuFlyoutItemAbout_Click" />
-                        </MenuBarItem>
-
-                    </MenuBar>
-                </Grid>
-            </Grid>
-        </Grid>
-
-        <Grid Grid.Row="1" VerticalAlignment="Top">
-            <Viewbox>
-                <Grid MinWidth="1680">
-                    <TextBlock Text="Oobey! Doobey! Doobey! Dooo!" Margin="20" FontSize="30" />
-                    <ToggleButton Content="clicky" FontWeight="Bold"  Margin="86,120,0,0" VerticalAlignment="Top" Height="59" Width="233" FontSize="22" />
-                    <ToggleButton Content="clicky2" FontWeight="Bold"  Margin="1519,276,0,0" VerticalAlignment="Top" Height="59" Width="233" FontSize="22"/>
-                </Grid>
-            </Viewbox>
-        </Grid>
+        <!--https://www.informit.com/articles/article.aspx?p=2304072&seqNum=3-->
+        <TextBlock Text="Oobey! Doobey! Doobey! Dooo!" Margin="20" FontSize="30" />
+        <ToggleButton Content="clicky" FontWeight="Bold"  Margin="86,120,0,0" VerticalAlignment="Top" Height="59" Width="233" FontSize="22" />
+        <ToggleButton Content="clicky2" FontWeight="Bold"  Margin="1519,276,0,0" VerticalAlignment="Top" Height="59" Width="233" FontSize="22"/>
     </Grid>
 </Page>

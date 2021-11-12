@@ -29,55 +29,10 @@ namespace Rackit.Desktop
   /// </summary>
   public sealed partial class MainPage : Page
   {
-    public ICommand SaveCommand { get; }
-    public ICommand DemoCommand { get; }
-
     public MainPage()
     {
       this.InitializeComponent();
-      Window.Current.SetTitleBar(bkgTitleBar);
-      this.SaveCommand = new RelayCommand(OnSave);
-      this.DemoCommand = new RelayCommand<string>(OnDemo);
-    }
-
-    private async void OnDemo(string text)
-    {
-      await new ContentDialog
-      {
-        Title = "On demo!",
-        Content = DateTime.Now.Millisecond.ToString(),
-        PrimaryButtonText = "OK"
-      }.ShowOneAtATimeAsync();
-    }
-
-    private async void OnSave()
-    {
-      await new ContentDialog
-      {
-        Title = "On save!",
-        Content = DateTime.Now.Millisecond.ToString(),
-        PrimaryButtonText = "OK"
-      }.ShowOneAtATimeAsync();
-    }
-
-    private async void MenuFlyoutOpen_Click(object sender, RoutedEventArgs e)
-    {
-      await new ContentDialog
-      {
-        Title = "On open!",
-        Content = DateTime.Now.Millisecond.ToString(),
-        PrimaryButtonText = "OK"
-      }.ShowOneAtATimeAsync();
-    }
-
-    private async void MenuFlyoutItemAbout_Click(object sender, RoutedEventArgs e)
-    {
-      await new ContentDialog
-      {
-        Title = "On about!",
-        Content = "all about something",
-        PrimaryButtonText = "OK"
-      }.ShowOneAtATimeAsync();
+      
     }
   }
 }
