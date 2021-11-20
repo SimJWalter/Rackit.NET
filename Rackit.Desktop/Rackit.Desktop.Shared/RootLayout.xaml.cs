@@ -19,63 +19,68 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Rackit.Desktop
 {
-    public sealed partial class RootLayout : Grid
+  public sealed partial class RootLayout : Grid
+  {
+    public RootLayout(Frame contentFrame)
     {
-        public RootLayout(Frame contentFrame)
-        {   
-            this.InitializeComponent();
-            Window.Current.SetTitleBar(bkgTitleBar);
-            this.SaveCommand = new RelayCommand(OnSave);
-            this.DemoCommand = new RelayCommand<string>(OnDemo);
-            gdMainCont.Children.Add(contentFrame);
-        }
-
-        public ICommand SaveCommand { get; }
-        public ICommand DemoCommand { get; }
-
-        private void MenuFlyoutItemMaps_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private async void OnDemo(string text)
-        {
-            await new ContentDialog
-            {
-                Title = "On demo!",
-                Content = DateTime.Now.Millisecond.ToString(),
-                PrimaryButtonText = "OK"
-            }.ShowOneAtATimeAsync();
-        }
-
-        private async void OnSave()
-        {
-            await new ContentDialog
-            {
-                Title = "On save!",
-                Content = DateTime.Now.Millisecond.ToString(),
-                PrimaryButtonText = "OK"
-            }.ShowOneAtATimeAsync();
-        }
-
-        private async void MenuFlyoutOpen_Click(object sender, RoutedEventArgs e)
-        {
-            await new ContentDialog
-            {
-                Title = "On open!",
-                Content = DateTime.Now.Millisecond.ToString(),
-                PrimaryButtonText = "OK"
-            }.ShowOneAtATimeAsync();
-        }
-
-        private async void MenuFlyoutItemAbout_Click(object sender, RoutedEventArgs e)
-        {
-            await new ContentDialog
-            {
-                Title = "On about!",
-                Content = "all about something",
-                PrimaryButtonText = "OK"
-            }.ShowOneAtATimeAsync();
-        }
+      this.InitializeComponent();
+      Window.Current.SetTitleBar(bkgTitleBar);
+      this.SaveCommand = new RelayCommand(OnSave);
+      this.DemoCommand = new RelayCommand<string>(OnDemo);
+      gdMainCont.Children.Add(contentFrame);
     }
+
+    public ICommand SaveCommand { get; }
+    public ICommand DemoCommand { get; }
+
+    private void MenuFlyoutItemMaps_Click(object sender, RoutedEventArgs e)
+    {
+      App.Instance.ContentFrame.Navigate(typeof(MapsPage));
+    }
+
+    private void MenuFlyoutItemInkCanvas_Click(object sender, RoutedEventArgs e)
+    {
+      App.Instance.ContentFrame.Navigate(typeof(SketchPage));
+    }
+
+    private async void OnDemo(string text)
+    {
+      await new ContentDialog
+      {
+        Title = "On demo!",
+        Content = DateTime.Now.Millisecond.ToString() + ":" + text,
+        PrimaryButtonText = "OK"
+      }.ShowOneAtATimeAsync();
+    }
+
+    private async void OnSave()
+    {
+      await new ContentDialog
+      {
+        Title = "On save!",
+        Content = DateTime.Now.Millisecond.ToString(),
+        PrimaryButtonText = "OK"   
+      }.ShowOneAtATimeAsync();
+    }
+
+    private async void MenuFlyoutOpen_Click(object sender, RoutedEventArgs e)
+    {
+      await new ContentDialog
+      {
+        Title = "On open!",
+        Content = DateTime.Now.Millisecond.ToString(),
+        PrimaryButtonText = "OK"
+      }.ShowOneAtATimeAsync();
+    }
+
+    private async void MenuFlyoutItemAbout_Click(object sender, RoutedEventArgs e)
+    {
+      await new ContentDialog
+      {
+        Title = "On about!",
+        Content = "all about something",
+        PrimaryButtonText = "OK"
+      }.ShowOneAtATimeAsync();
+    }
+  }
 }

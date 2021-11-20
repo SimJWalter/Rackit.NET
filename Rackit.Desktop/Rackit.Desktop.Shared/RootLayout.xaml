@@ -54,8 +54,8 @@
                         <MenuFlyoutItem Text="Maps" Click="MenuFlyoutItemMaps_Click" />
                     </MenuBarItem>
 
-                    <MenuBarItem Title="Insert" AccessKey="I">
-                        <MenuFlyoutItem Text="About" Click="MenuFlyoutItemAbout_Click" />
+                    <MenuBarItem Title="InkCanvas" AccessKey="I">
+                        <MenuFlyoutItem Text="InkCanvas" Click="MenuFlyoutItemInkCanvas_Click" />
                     </MenuBarItem>
 
                     <MenuBarItem Title="Effects" AccessKey="T">

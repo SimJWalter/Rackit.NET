@@ -33,6 +33,8 @@ namespace Rackit.Desktop
 #endif
         public Frame ContentFrame { get; private set; }
 
+        public static App Instance { get { return (App)App.Current; } }
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().

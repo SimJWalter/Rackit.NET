@@ -10,6 +10,12 @@
 			-->
       <Version>6.2.11</Version>
     </PackageReference>
+    <PackageReference Include="SkiaSharp">
+      <Version>2.80.3-preview.93</Version>
+    </PackageReference>
+    <PackageReference Include="SkiaSharp.Views">
+      <Version>2.80.3-preview.93</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml" Version="2.6.0" />
     <PackageReference Include="Uno.Core" Version="3.0.0" />
     <PackageReference Include="Uno.UI" Version="3.11.0-dev.487" />
@@ -24,7 +30,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Rackit.Desktop</RootNamespace>
     <AssemblyName>Rackit.Desktop</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <DefaultLanguage>en</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.18362.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>
