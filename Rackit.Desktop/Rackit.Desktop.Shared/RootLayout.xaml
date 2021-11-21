@@ -55,7 +55,10 @@
                     </MenuBarItem>
 
                     <MenuBarItem Title="InkCanvas" AccessKey="I">
-                        <MenuFlyoutItem Text="InkCanvas" Click="MenuFlyoutItemInkCanvas_Click" />
+                        <MenuFlyoutSeparator />
+                        <MenuFlyoutItem Text="HW Canvas" Click="MenuFlyoutItemHWCanvas_Click" />
+                        <MenuFlyoutSeparator />
+                        <MenuFlyoutItem Text="sW Canvas" Click="MenuFlyoutItemSWCanvas_Click" />
                     </MenuBarItem>
 
                     <MenuBarItem Title="Effects" AccessKey="T">

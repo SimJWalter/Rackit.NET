@@ -7,9 +7,6 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.UI.Core;
-using Windows.UI.Input.Inking;
-using Windows.Graphics.Display;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -17,32 +14,19 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Graphics.Display;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Rackit.Desktop
 {
-  /// <summary>
-  /// An empty page that can be used on its own or navigated to within a Frame.
-  /// </summary>
-  public sealed partial class SketchPage : Page
+
+  public sealed partial class CanvasSWPage : Page
   {
     private Point _currentPosition;
-    public SketchPage()
+    public CanvasSWPage()
     {
       this.InitializeComponent();
-      swapChain.Width = canvas.Width;
-      swapChain.Height = canvas.Height;
-    }
-
-    private Visibility Not(bool? value) => (!value ?? false) ? Visibility.Visible : Visibility.Collapsed;
-
-    private void OnPaintSwapChain(object sender, SKPaintGLSurfaceEventArgs e)
-    {
-      // the the canvas and properties
-      var canvas = e.Surface.Canvas;
-
-      Render(canvas, new Size(e.BackendRenderTarget.Width, e.BackendRenderTarget.Height), SKColors.Green, "SkiaSharp Hardware Rendering");
     }
 
     private void OnPaintSurface(object sender, SKPaintSurfaceEventArgs e)
@@ -58,16 +42,9 @@ namespace Rackit.Desktop
     {
       _currentPosition = e.GetCurrentPoint(panelGrid).Position;
       currentPositionText.Text = _currentPosition.ToString();
-
-      if (hwAcceleration.IsChecked ?? false)
-      {
-        swapChain.Invalidate();
-      }
-      else
-      {
-        canvas.Invalidate();
-      }
+      swCanvas.Invalidate();
     }
+
 
     private void Render(SKCanvas canvas, Size size, SKColor color, string text)
     {

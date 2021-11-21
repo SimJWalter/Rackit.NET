@@ -36,12 +36,7 @@ namespace Rackit.Desktop
     private void MenuFlyoutItemMaps_Click(object sender, RoutedEventArgs e)
     {
       App.Instance.ContentFrame.Navigate(typeof(MapsPage));
-    }
-
-    private void MenuFlyoutItemInkCanvas_Click(object sender, RoutedEventArgs e)
-    {
-      App.Instance.ContentFrame.Navigate(typeof(SketchPage));
-    }
+    }    
 
     private async void OnDemo(string text)
     {
@@ -72,7 +67,14 @@ namespace Rackit.Desktop
         PrimaryButtonText = "OK"
       }.ShowOneAtATimeAsync();
     }
-
+    private void MenuFlyoutItemSWCanvas_Click(object sender, RoutedEventArgs e)
+    {
+      App.Instance.ContentFrame.Navigate(typeof(CanvasSWPage));
+    }
+    private void MenuFlyoutItemHWCanvas_Click(object sender, RoutedEventArgs e)
+    {
+      App.Instance.ContentFrame.Navigate(typeof(CanvasHWPage));
+    }
     private async void MenuFlyoutItemAbout_Click(object sender, RoutedEventArgs e)
     {
       await new ContentDialog

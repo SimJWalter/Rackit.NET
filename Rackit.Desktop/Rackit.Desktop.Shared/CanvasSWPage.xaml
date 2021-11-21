@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Rackit.Desktop.SketchPage"
+    x:Class="Rackit.Desktop.CanvasSWPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Rackit.Desktop"
@@ -14,23 +14,17 @@
             <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel>
-            <CheckBox Content="Hardware Accelerated" x:Name="hwAcceleration" />
+        <StackPanel>            
             <TextBlock x:Name="currentPositionText" />
         </StackPanel>
         <Grid x:Name="panelGrid" Grid.Row="1">
             <skia:SKXamlCanvas 
                 Width="1680" Height="1680"
-				x:Name="canvas" 
+				x:Name="swCanvas" 
 				PaintSurface="OnPaintSurface"
 				PointerMoved="{x:Bind OnPointerMovedII}"
-				Background="Transparent"
-				Visibility="{x:Bind Not(hwAcceleration.IsChecked), Mode=OneWay}" />
-            <skia:SKSwapChainPanel
-				x:Name="swapChain"
-				PaintSurface="OnPaintSwapChain"
-				PointerMoved="{x:Bind OnPointerMovedII}"				
-				Visibility="{x:Bind hwAcceleration.IsChecked, Mode=OneWay}" />            
+				Background="Transparent" />
+           
         </Grid>
     </Grid>
 </Page>
